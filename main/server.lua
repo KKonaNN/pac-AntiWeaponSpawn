@@ -30,13 +30,13 @@ Citizen.CreateThread(function()
                 if ESX then
                     local xPlayer = ESX.GetPlayerFromId(player)
                     if xPlayer.getInventoryItem(Config.Weapon[weapon]["name"]).count < 1 then
-                        RemoveWeaponFromPed(playerPed, weapon)
+                        RemoveWeaponFromPed(playerPed, GetHashKey(weapon))
                         LogMeDaddy(tonumber(player),'`Weapon Hash :` '..weapon..'\n`Weapon Hash :` '..Config.Weapon[weapon]["name"] , Config.webhook, 16777215)
                     end
                 elseif QBCore then
                     local Player = QBCore.Functions.GetPlayer(tonumber(player))
                     if Player.PlayerData.items[weapon] == nil then
-                        RemoveWeaponFromPed(playerPed, weapon) -- Remove Weapon but somehow it doesn't work so drop cheater
+                        RemoveWeaponFromPed(playerPed, GetHashKey(weapon))
                         LogMeDaddy(tonumber(player), '`Weapon Hash :` '..weapon..'\n`Weapon Name :` '..Config.Weapon[weapon]["name"], Config.webhook, 16777215)
                     end
                 end
