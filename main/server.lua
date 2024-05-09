@@ -35,7 +35,7 @@ Citizen.CreateThread(function()
                     end
                 elseif QBCore then
                     local Player = QBCore.Functions.GetPlayer(tonumber(player))
-                    if Player.PlayerData.items[weapon] == nil then
+                    if Player and Player.PlayerData.items[weapon] == nil then
                         RemoveWeaponFromPed(playerPed, GetHashKey(weapon))
                         LogMeDaddy(tonumber(player), '`Weapon Hash :` '..weapon..'\n`Weapon Name :` '..Config.Weapon[weapon]["name"], Config.webhook, 16777215)
                     end
